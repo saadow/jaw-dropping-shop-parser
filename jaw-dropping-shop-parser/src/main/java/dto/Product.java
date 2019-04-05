@@ -2,22 +2,47 @@ package dto;
 
 public class Product {
 	String name;
-	String brand;
+	Brand brand;
 	String color;
-	double price;
-	double initialPrice;
+	String price;
 	String description;
 	String articleID;
-	double shippingCost;
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	public Brand getBrand() {
+		return brand;
+	}
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getArticleID() {
+		return articleID;
+	}
+	public void setArticleID(String articleID) {
+		this.articleID = articleID;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -26,17 +51,10 @@ public class Product {
 		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(initialPrice);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		temp = Double.doubleToLongBits(price);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(shippingCost);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -66,80 +84,22 @@ public class Product {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (Double.doubleToLongBits(initialPrice) != Double.doubleToLongBits(other.initialPrice))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
-			return false;
-		if (Double.doubleToLongBits(shippingCost) != Double.doubleToLongBits(other.shippingCost))
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
 			return false;
 		return true;
 	}
-
-	public String getBrand() {
-		return brand;
-	}
-
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", brand=" + brand + ", color=" + color + ", price=" + price
-				+ ", initialPrice=" + initialPrice + ", description=" + description + ", articleID=" + articleID
-				+ ", shippingCost=" + shippingCost + "]";
+		return "Product [name=" + name + ", brand=" + brand + ", color=" + color + ", price=" + price + ", description="
+				+ description + ", articleID=" + articleID + "]";
 	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public double getInitialPrice() {
-		return initialPrice;
-	}
-
-	public void setInitialPrice(double initialPrice) {
-		this.initialPrice = initialPrice;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getArticleID() {
-		return articleID;
-	}
-
-	public void setArticleID(String articleID) {
-		this.articleID = articleID;
-	}
-
-	public double getShippingCost() {
-		return shippingCost;
-	}
-
-	public void setShippingCost(double shippingCost) {
-		this.shippingCost = shippingCost;
-	}
+	
 }
